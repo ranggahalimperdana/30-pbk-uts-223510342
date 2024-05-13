@@ -1,22 +1,53 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
   <div>
-    <h2 style="font-family: 'Space Mono', monospace;">Hello, World!</h2>
-    <h2 style="font-family: 'Space Mono', monospace;">ini saya!</h2>
-    
+    <h1>Filter Posts by User</h1>
+    <select v-model="selectedUserName">
+      <option value="">-- Select User Name --</option>
+      <option v-for="user in availableUsers" :key="user.id" :value="user.name">{{ user.name }}</option>
+    </select>
+    <button @click="filterPosts">Filter</button>
+
+    <h1>Post ID</h1>
+    <p v-if="selectedPostId">Post ID: {{ selectedPostId }}</p>
+    <p v-else>No post ID selected.</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
-}
+  data() {
+    return {
+      availableUsers: [
+        { id: 1, name: "Leanne Graham" },
+        { id: 2, name: "Ervin Howell" },
+        { id: 3, name: "Clementine Bauch" },
+        // tambahkan nama pengguna lainnya di sini
+      ],
+      posts: [],
+      selectedUserName: '',
+      selectedPostId: null
+    };
+  },
+  computed: {
+    filteredUser() {
+      return this.availableUsers.find(user => user.name.toLowerCase() === this.selectedUserName.toLowerCase());
+    }
+  },
+  methods: {
+    async fetchPosts() {
+      const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+      this.posts = await response.json();
+    },
+    filterPosts() {
+      if (this.filteredUser) {
+        this.selectedPostId = this.filteredUser.id;
+      } else {
+        this.selectedPostId = null;
+      }
+    }
+  },
+  created() {
+    this.fetchPosts();
+  }
+};
 </script>
-
-<style>
-/* CSS untuk font Space Mono */
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
-</style>
