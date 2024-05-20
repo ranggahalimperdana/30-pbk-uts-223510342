@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>semua fitur masih dalam pengembangan</h2>
-    <h2>Semau Codingan saya berantakanan & Error saya akan menggukanan fitur branch di git agar saya bisa <br>
+    <h2>mohon maaf Codingan saya berantakanan & Error saya akan menggukanan fitur branch di git agar saya bisa <br>
     membuat tugas secara terpisah dan kemudian hasil nya saya akan upload tugasnya  secepat mungkin</h2>
     <h1>Filter Posts by User</h1>
     <select v-model="selectedUserName">
