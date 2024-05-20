@@ -1,6 +1,8 @@
 <template>
   <div>
     <h2>semua fitur masih dalam pengembangan</h2>
+    <h2>Semau Codingan saya berantakanan saya akan menggukanan fitur branch di git agar saya bisa <br>
+    membuat tugas secara terpisah saya</h2>
     <h1>Filter Posts by User</h1>
     <select v-model="selectedUserName">
       <option value="">-- Select User Name --</option>
