@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <nav class="navbar">
-      <button @click="navigate('HomePage')" :class="{ active: currentComponent === 'HomePage' }">Halaman Utama</button>
+      <h1>Tugas Rangga</h1>
+      <button @click="navigate('HomePage')" :class="{ active: currentComponent === 'HomePage' }">Tugas UTS Todo list</button>
       <button @click="navigate('FirstPage')" :class="{ active: currentComponent === 'FirstPage' }">Halaman Pertama</button>
       <button @click="navigate('SecondPage')" :class="{ active: currentComponent === 'SecondPage' }">Halaman Kedua</button>
     </nav>
@@ -53,8 +54,19 @@ body {
 .navbar {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #333;
   padding: 1rem;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.navbar h1 {
+  flex: 1 1 auto;
+  color: salmon;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
 }
 
 .navbar button {
@@ -66,6 +78,7 @@ body {
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s;
+  flex: 1 1 auto;
 }
 
 .navbar button:hover,
@@ -79,5 +92,21 @@ main {
   justify-content: center;
   align-items: center;
   padding: 2rem;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar h1 {
+    margin-bottom: 1rem;
+  }
+
+  .navbar button {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
 }
 </style>

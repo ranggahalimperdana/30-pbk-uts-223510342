@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h1>Halaman Pertama</h1>
+      <h1>Tugas To dolist</h1>
       <button @click="$emit('navigate', 'HomePage')">Kembali ke Halaman Utama</button>
     </div>
   </template>
