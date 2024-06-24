@@ -216,7 +216,7 @@ input[type="checkbox"]:checked {
 }
 
 h1{
-  font-size: medium;
+  font-size: 30px bold;
   text-align: center;
   color: salmon;
 }
